@@ -1,7 +1,16 @@
-# lpr
+# [lpr](https://github.com/dudushy/lpr)
 License Plate Recognition.
 
-<!-- ## Requirements
-- [Python v3.10.11](https://www.python.org/downloads/release/python-31011/)
-- [CUDA v11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive)
- -->
+---
+
+## Prerequisites:
+- [Python 3.8.10](https://www.python.org/downloads/release/python-3810/)
+
+## How to install:
+```bash
+pip install -r requirements.txt
+```
+## How to run:
+```bash
+python src/main.py
+```
