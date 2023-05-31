@@ -30,6 +30,7 @@ License Plate Recognition.
     pip install opencv-contrib-python
     pip install imutils
     pip install scikit-image
+    pip install pytesseract
     ```
 
     <!-- pip install -r requirements.txt -->
