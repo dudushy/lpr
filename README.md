@@ -37,5 +37,5 @@ License Plate Recognition.
 
 ## How to run:
 ```bash
-python3 src/ocr_license_plate.py --input assets/samples/images
+python3 src/main.py
 ```
