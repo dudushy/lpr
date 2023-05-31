@@ -12,6 +12,11 @@ sudo apt update && sudo apt upgrade
 sudo apt install python3.11 && sudo apt install python3-pip
 sudo apt-get install tesseract-ocr
 
+workon lpr
+pip install opencv-contrib-python
+pip install imutils
+pip install scikit-image
+
 pip install -r requirements.txt
 ```
 ## How to run:
