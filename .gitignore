@@ -1,3 +1,4 @@
 .env
 /src/assets/output
 /.ref
+__pycache__/
