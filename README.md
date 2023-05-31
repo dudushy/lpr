@@ -15,5 +15,5 @@ pip install -r requirements.txt
 ```
 ## How to run:
 ```bash
-python src/main.py
+python3 src/ocr_license_plate.py --input assets/samples/images
 ```
