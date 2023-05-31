@@ -4,7 +4,7 @@ License Plate Recognition.
 ---
 
 ## Prerequisites:
-- [Python 3.8.10](https://www.python.org/downloads/release/python-3810/)
+- [Python 3.11.3](https://www.python.org/downloads/release/python-3113/)
 
 ## How to install:
 ```bash
