@@ -8,6 +8,7 @@ License Plate Recognition.
 
 ## How to install:
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt install python3.11 && sudo apt install python3-pip
 sudo apt-get install tesseract-ocr
 
