@@ -27,7 +27,12 @@ License Plate Recognition.
 
 - Install Python packages:
     ```bash
-    pip install -r requirements.txt
+    pip install opencv-contrib-python
+    pip install imutils
+    pip install scikit-image
+    pip install pytesseract
+
+    # pip install -r requirements.txt
     ```
 
 ## How to run:
