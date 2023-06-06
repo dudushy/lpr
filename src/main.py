@@ -6,13 +6,11 @@ import glob
 import sys
 import re
 
-import openalpr
+import aaa
 
 # * -- Variables
 title = "LPR"
 path = os.path.dirname(__file__)  # ? Directory path
-runtime_data_path = path + r"\\..\\openalpr_64\\runtime_data"  # ? Directory path
-openalpr_conf_path = path + r"\\..\\openalpr_64\\openalpr.conf"  # ? Directory path
 assets_path = path + "\\assets\\samples\\images\\*"  # ? Assets path
 output_folder_path = path + "\\output"  # ? Output folder path
 
@@ -43,43 +41,27 @@ def lpr() -> None:
             filename = file.split("\\")[-1].split(".")[0]
             print(f"[{title}#lpr] filename: ", filename)
 
+            results = file
 
+            # output = re.sub("[\W_]+", "", plate).upper()
+            output = re.sub("[\W_]+", "", "temp").upper()
+            print(f"[{title}#lpr] ({filename}) output [{1.00}]: ", output)
 
-            # Configurar o OpenALPR
-            openalpr.init(openalpr_conf_path, runtime_data_path)
+            output_destination = output_folder_path + \
+                f"\\{filename}.txt"
+            print(f"[{title}#lpr] output_destination: ",
+                  output_destination)
 
+            outputFolderExists = os.path.exists(output_folder_path)
+            print(f"[{title}#lpr] outputFolderExists: ",
+                  outputFolderExists)
 
-            # Realizar o reconhecimento da placa de carro
-            results = openalpr.ocr(file)
+            if not outputFolderExists:
+                print(f"[{title}#lpr] create output folder")
+                os.mkdir(output_folder_path)
 
-            # Extrair o texto da placa de carro reconhecida
-            if len(results['results']) > 0:
-                plate = results['results'][0]['plate']
-                confidence = results['results'][0]['confidence']
-
-                output = re.sub('[\W_]+', '', plate).upper()
-                print(f"[{title}#lpr] ({filename}) output [{confidence}]: ", output)
-
-                output_destination = output_folder_path + \
-                    f"\\{filename}.txt"
-                print(f"[{title}#lpr] output_destination: ",
-                        output_destination)
-
-                outputFolderExists = os.path.exists(output_folder_path)
-                print(f"[{title}#lpr] outputFolderExists: ",
-                        outputFolderExists)
-
-                if not outputFolderExists:
-                    print(f"[{title}#lpr] create output folder")
-                    os.mkdir(output_folder_path)
-
-                with open(output_destination, "w", encoding="utf-8") as result:
-                    result.write(output)
-            else:
-                print("Nenhuma placa de carro reconhecida.")
-
-            # Finalizar o OpenALPR
-            openalpr.unload()
+            with open(output_destination, "w", encoding="utf-8") as result:
+                result.write(output)
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
